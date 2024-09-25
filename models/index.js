@@ -3,8 +3,8 @@ const process = require('process');
 require('dotenv').config();
 
 db = {};
-if (process.env.DATABASE_URL) {
-  sequelize = new Sequelize(process.env.DATABASE_URL, {
+if (process.env.PROD_DB_URL) {
+  sequelize = new Sequelize(process.env.PROD_DB_URL, {
     dialect: 'postgres'
   });
 } else {
@@ -13,7 +13,7 @@ if (process.env.DATABASE_URL) {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT || 'postgres'
+    dialect: 'postgres'
   };
 
   sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
