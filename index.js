@@ -20,6 +20,10 @@ app.use('/v1/reviews', reviewRoutes);
 app.use('/v1/users', userRoutes);
 app.use('/v1/reports', reportRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Ticketing API');
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
