@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const API_URL = 'http://localhost:3000/v1';
+const API_URL = process.env.VUE_APP_API_URL;
 class EmailService {
   constructor() {
     this.transporter = nodemailer.createTransport({
